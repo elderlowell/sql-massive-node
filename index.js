@@ -4,7 +4,7 @@ const cors = require('cors');
 const massive = require('massive');
 const connectionString = "postgres://jlowell@localhost/sandbox";
 
-const app = express();
+const app = module.exports = express();
 
 const port = 3000;
 
