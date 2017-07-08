@@ -118,8 +118,8 @@ In this step, we are going to add massive to the server so we can connect to a d
 
 ### Instructions
 
-* Create a `connectionString` variable that connects to the `sandbox` database. 
-  * Create the `sanbox` database if it doesn't exist.
+* Create a `connectionString` variable that connects to the `sandbox` database.
+  * Create the `sandbox` database if it doesn't exist.
 * Use `massive` and the `connectionString` to establish a connection.
 * In the `.then` callback from `massive`, set `db` on app to equal the database instance.
 
@@ -129,7 +129,7 @@ In this step, we are going to add massive to the server so we can connect to a d
 
 <br />
 
-Now that we have a basic node server ready to go, let's modify it to connect to a postgres database. Create a variable called `connectionString` that equals `postgres://username:password@localhost/sandbox`. `username` should equal your username and `password` should equal your password. If you don't have a password set on your computer, you can remove the `:password` from the connection string. 
+Now that we have a basic node server ready to go, let's modify it to connect to a postgres database. Create a variable called `connectionString` that equals `postgres://username:password@localhost/sandbox`. `username` should equal your username and `password` should equal your password. If you don't have a password set on your computer, you can remove the `:password` from the connection string.
 
 Using the `connectionString`, we can invoke `massive` and pass it in as the first argument. This will return a `promise`.
 
@@ -406,7 +406,7 @@ In this step, we will create a `products_controller.js` file to will handle the 
 
 <br />
 
-Now that we have all the `sql` files we'll need to interact with our database, let's create a controller that will execute the `sql`. Create a file called `products_controller.js`. In this file, use `module.exports` to export an `object` with five methods. All methods should capture `req`, `res`, and `next` and create a variable for the database instance off of `req.app`. 
+Now that we have all the `sql` files we'll need to interact with our database, let's create a controller that will execute the `sql`. Create a file called `products_controller.js`. In this file, use `module.exports` to export an `object` with five methods. All methods should capture `req`, `res`, and `next` and create a variable for the database instance off of `req.app`.
 
 ```js
 module.exports = {
@@ -615,7 +615,7 @@ module.exports = {
 
   getOne: ( req, res, next ) => {
     const dbInstance = req.app.get('db');
-    const { params } = req; 
+    const { params } = req;
 
     dbInstance.read_product([ params.id ])
       .then( product => res.status(200).send( product ) )
@@ -671,7 +671,7 @@ module.exports = {
 
   getOne: ( req, res, next ) => {
     const dbInstance = req.app.get('db');
-    const { params } = req; 
+    const { params } = req;
 
     dbInstance.read_product([ params.id ])
       .then( product => res.status(200).send( product ) )
