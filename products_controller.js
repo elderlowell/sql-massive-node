@@ -1,16 +1,17 @@
 module.exports = {
   create: function(req, res, next) {
     const dbInstance = req.app.get('db');
+    const {name, description, price, imageurl} = req.body;
 
-    dbInstance.create_product()
-      .then(() => res.status(200).send())
+    dbInstance.create_product([name, description, price, imageurl])
+      .then(() => res.status(200).send("Product Added"))
       .catch(() => res.status(500).send("Error Creating"));
   },
 
   getOne: function(req, res, next) {
     const dbInstance = req.app.get('db');
 
-    dbInstance.read_product()
+    dbInstance.read_product([req.params.id])
       .then((product) => res.status(200).send(product))
       .catch(() => res.status(500).send("Error Reading Product"));
   },
@@ -26,16 +27,16 @@ module.exports = {
   update: function(req, res, next) {
     const dbInstance = req.app.get('db');
 
-    dbInstance.update_products()
-      .then(() => res.status(200).send())
+    dbInstance.update_products([req.params.id, req.query.desc])
+      .then(() => res.status(200).send("Product Updated"))
       .catch(() => res.status(500).send("Error Updating"));
   },
 
   delete: function(req, res, next) {
     const dbInstance = req.app.get('db');
 
-    dbInstance.delete_product()
-      .then(() => res.status(200).send())
+    dbInstance.delete_product([req.params.id])
+      .then(() => res.status(200).send("Product Deleted"))
       .catch(() => res.status(500).send("Error Deleting"));
   }
 };
