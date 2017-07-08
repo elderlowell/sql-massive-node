@@ -205,7 +205,7 @@ In this step, we are going to create our table and the `.sql` files we'll need t
 * `read_products.sql`:
   * The SQL should be able to return all products from the `Products` table.
 * `read_product.sql`:
-  * The SQL should be able to returna a specific product from the `Products` table.
+  * The SQL should be able to return a a specific product from the `Products` table.
   * The SQL should use a parameter to find the product whose `ProductID` matches.
 * `update_product.sql`:
   * The SQL should be able to update the description of a specific product from the `Products` table.
